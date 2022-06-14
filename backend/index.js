@@ -27,7 +27,7 @@ const App = {
 		App.io.onConnection((channel) => {
 			console.log("New Connection", channel.id);
 			channel.on('helloServer', (data) => {
-				console.log(data);
+				channel.emit('helloClient', { message: "Hello Client" });
 			})
 		})
 	},
